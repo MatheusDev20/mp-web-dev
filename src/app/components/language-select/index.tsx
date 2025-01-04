@@ -24,24 +24,24 @@ export const CountrySelect = ({
   const optionsButSelected = options.filter((option) => option.name !== value);
 
   return (
-    <div className="relative md:w-32">
+    <div className="relative w-12 md:w-28">
       <div
-        className="flex items-center justify-between bg-gray-800 p-2 rounded-lg border border-gray-600 cursor-pointer hover:border-primary-700"
+        className="flex items-center justify-between bg-gray-800 p-1 md:p-2 rounded-lg border border-gray-600 cursor-pointer hover:border-primary-700"
         onClick={() => setOpenDropDown(!openDropDown)}
       >
         {flag && (
           <div className="flex items-center gap-2">
             <Image
-              className="rounded-full"
+              className="rounded-full w-4 h-4 md:w-6 md:h-6"
               width={24}
               height={24}
               alt={flag.name}
               src={flag.imgLink || ""}
             />
-            <span className="text-gray-300">{flag.name}</span>
+            <span className="text-gray-300 hidden md:block">{flag.name}</span>
           </div>
         )}
-        <button className="text-primary-400 hover:text-primary-200">
+        <button className="text-primary-400 hidden md:block hover:text-primary-200">
           {openDropDown ? <ChevronUpIcon /> : <ChevronDownIcon />}
         </button>
       </div>
@@ -60,14 +60,14 @@ export const CountrySelect = ({
               >
                 {option.imgLink && (
                   <Image
-                    className="rounded-full"
+                    className="rounded-full w-4 h-4 md:w-6 md:h-6"
                     width={24}
                     height={24}
                     alt={option.name}
                     src={option.imgLink || ""}
                   />
                 )}
-                <span>{option.name}</span>
+                <span className='text-gray-300 hidden md:block'>{option.name}</span>
               </div>
             ))}
           </div>
