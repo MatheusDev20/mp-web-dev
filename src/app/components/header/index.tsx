@@ -56,9 +56,9 @@ export const Header = () => {
       <div className="flex flex-row items-center mr-6 md:mr-0 gap-4 md:gap-8 md:mt-0">
         {/* Social Icons */}
         <div className="flex gap-4 md:gap-8 mr-0 md:mr-12">
-          <EmailIcon tClass="text-white cursor-pointer w-4 h-4 md:w-6 md:h-6" />
-          <LinkedinIcon tClass="text-white cursor-pointer w-4 h-4 md:w-5 md:h-5" />
-          <GithubIcon tClass="text-white cursor-pointer w-4 h-4 md:w-6 md:h-6" />
+          <a target="_blank" href="mailto:matheusdev20@gmail.com"><EmailIcon tClass="text-white cursor-pointer w-4 h-4 md:w-6 md:h-6" /></a>
+          <a target="_blank" href="https://www.linkedin.com/in/matheusdev20/"><LinkedinIcon tClass="text-white cursor-pointer w-4 h-4 md:w-5 md:h-5" /></a>
+          <a target="_blank" href="https://github.com/MatheusDev20" ><GithubIcon tClass="text-white cursor-pointer w-4 h-4 md:w-6 md:h-6" /></a>
         </div>
 
         {/* Country Select */}
