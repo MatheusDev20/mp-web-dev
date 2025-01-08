@@ -1,0 +1,1 @@
+export const GREATINGS_WPP = "Olá, vim do seu site vamos conversar?";
