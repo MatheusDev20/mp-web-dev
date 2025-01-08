@@ -10,8 +10,8 @@ import { LinkedinIcon } from "../icons/linkedin"
 import { GithubIcon } from "../icons/github"
 import { CountrySelect } from "../language-select"
 import { HamburguerIcon } from "../icons/hamburguer"
-import { GREATINGS_WPP } from "@/app/utils/constants"
 import { WhatsAppIcon } from "../icons/whatsapp"
+import { loadSocialConfigs } from "@/app/utils/json"
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
@@ -21,6 +21,8 @@ export const Header = () => {
     { name: "EN", imgLink: US },
     { name: "ES", imgLink: ES },
   ];
+
+  const { greatingWhatsap, currentPhone, linkedin, github } = loadSocialConfigs()
 
   return (
     <header className="flex justify-center w-screen py-0 px-0 md:px-16">
@@ -57,12 +59,9 @@ export const Header = () => {
         <div className="flex flex-row items-center mr-6 md:mr-0 gap-4 md:gap-8 md:mt-0">
           {/* Social Icons */}
           <div className="flex gap-4 md:gap-8 mr-0 md:mr-12">
-            {/* <a aria-label="Conversar via WhatsAppp" href={`https://wa.me/5532999850138?text=${GREATINGS_WPP}`}>
-              <Image alt="Chat on WhatsApp" className="h-6 w-12" src={WPP_CONVERSATION} />
-            </a> */}
-            <a href={`https://wa.me/5532999850138?text=${GREATINGS_WPP}`} target="_blank"><WhatsAppIcon tClass="text-white cursor-pointer w-4 h-4 md:w-6 md:h-6" /></a>
-            <a target="_blank" href="https://www.linkedin.com/in/matheusdev20/"><LinkedinIcon tClass="text-white cursor-pointer w-4 h-4 md:w-5 md:h-5" /></a>
-            <a target="_blank" href="https://github.com/MatheusDev20" ><GithubIcon tClass="text-white cursor-pointer w-4 h-4 md:w-6 md:h-6" /></a>
+            <a href={`https://wa.me/${currentPhone}?text=${greatingWhatsap}`} target="_blank"><WhatsAppIcon tClass="text-white cursor-pointer w-4 h-4 md:w-6 md:h-6" /></a>
+            <a target="_blank" href={linkedin}><LinkedinIcon tClass="text-white cursor-pointer w-4 h-4 md:w-5 md:h-5" /></a>
+            <a target="_blank" href={github} ><GithubIcon tClass="text-white cursor-pointer w-4 h-4 md:w-6 md:h-6" /></a>
           </div>
 
           {/* Country Select */}
