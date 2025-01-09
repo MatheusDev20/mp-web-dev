@@ -12,18 +12,14 @@ import { CountrySelect } from "../language-select"
 import { HamburguerIcon } from "../icons/hamburguer"
 import { WhatsAppIcon } from "../icons/whatsapp"
 import { loadSocialConfigs } from "@/app/utils/json"
+import Link from "next/link"
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const { greatingWhatsap, currentPhone, linkedin, github, languages } = loadSocialConfigs()
+  const idioms = languages.map((l) => ({ name: l.name, imgLink: l.name === "PT" ? BR : l.name === "EN" ? US : ES }))
 
-  const languages = [
-    { name: "PT", imgLink: BR },
-    { name: "EN", imgLink: US },
-    { name: "ES", imgLink: ES },
-  ];
-
-  const { greatingWhatsap, currentPhone, linkedin, github } = loadSocialConfigs()
-
+  console.log("idioms", idioms)
   return (
     <header className="flex justify-center w-screen py-0 px-0 md:px-16">
       <div className="w-full flex flex-wrap px-0 md:px-12 items-center justify-between">
@@ -49,9 +45,11 @@ export const Header = () => {
             <li className="md:text-lg font-bold cursor-pointer text-primary-500 hover:text-primary-700">
               Projetos
             </li>
-            <li className="md:text-lg font-bold cursor-pointer text-primary-500 hover:text-primary-700">
-              Sobre mim
-            </li>
+            <Link href="/mp/bio">
+              <li className="md:text-lg font-bold cursor-pointer text-primary-500 hover:text-primary-700">
+                Bio
+              </li>
+            </Link>
           </ul>
         </nav>
 
@@ -68,7 +66,7 @@ export const Header = () => {
           <CountrySelect
             onChange={() => console.log("Do")}
             value="PT"
-            options={languages}
+            options={idioms}
           />
         </div>
       </div>
