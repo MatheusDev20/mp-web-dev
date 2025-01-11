@@ -44,7 +44,7 @@ export const Header = () => {
             } md:flex justify-center items-center w-full md:w-auto`}
         >
           <ul className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
-            <li className="md:text-lg font-bold cursor-pointer text-primary-500 hover:text-primary-700">
+            <li className="md:text-md font-bold cursor-pointer text-primary-500 hover:text-primary-700">
               Projetos
             </li>
             <Link href="/mp/bio">

@@ -27,9 +27,8 @@ const AccordionItem = ({ title, id, isOpen, setAccordionOpen, children }: Accord
         {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
       </button>
       <div
-        className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${
-          isOpen ? "max-h-[300px]" : "max-h-0"
-        }`}
+        className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${isOpen ? "max-h-[300px]" : "max-h-0"
+          }`}
       >
         <div className="px-6 pb-4 text-gray-400 text-sm">
           {children}
@@ -41,11 +40,11 @@ const AccordionItem = ({ title, id, isOpen, setAccordionOpen, children }: Accord
 
 export default function Bio() {
   const [showContent, setShowContent] = useState(false);
-  const [openAccordionId, setOpenAccordionId] = useState<number | null>(null); 
+  const [openAccordionId, setOpenAccordionId] = useState<number | null>(null);
   const { begining } = loadBioConfigs();
 
   const toggleAccordion = (id: number) => {
-    setOpenAccordionId(openAccordionId === id ? null : id); 
+    setOpenAccordionId(openAccordionId === id ? null : id);
   };
   const transition = {
     type: "spring",
@@ -55,21 +54,21 @@ export default function Bio() {
   } as any
 
   return (
-    <div className="md:py-6 px-12 flex flex-col self-center md:gap-16 max-w-screen mt-4 h-full">
+    <div className="md:py-6 2xl:p-6 px-12 flex flex-col md:gap-16 min-w-full mt-4 h-full">
       <div className="flex flex-col">
         <VerticalCutReveal
           onComplete={() => setShowContent(true)}
           staggerDuration={0.1}
-          containerClassName="self-center text-primary-700 text-md md:text-[24px] font-light"
+          containerClassName="self-center text-gray-300 text-md md:text-[24px] font-light"
         >
-          Olá 👋 seja bem vindo
+          Olá 👋 seja bem vindo!
         </VerticalCutReveal>
-        <VerticalCutReveal
+        {/* <VerticalCutReveal
           staggerDuration={0.1}
           containerClassName="self-center text-gray-300 text-md md:text-[16px] font-light"
         >
           Aqui você encontra informações sobre minha carreira, experiência de trabalho e objetivos futuros.
-        </VerticalCutReveal>
+        </VerticalCutReveal> */}
       </div>
       {showContent && (
         <motion.div
@@ -145,9 +144,9 @@ export default function Bio() {
           </AccordionItem>
         </motion.div>
       )}
-      <div className="min-h-[100px] flex justify-center items-center text-gray-300 text-sm">
+      {/* <div className="min-h-[100px] flex justify-center items-center text-gray-300 text-sm">
         More items
-      </div>
+      </div> */}
     </div>
   );
 }
