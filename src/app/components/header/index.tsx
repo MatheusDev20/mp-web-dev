@@ -14,16 +14,23 @@ import { WhatsAppIcon } from "../icons/whatsapp"
 import { loadSocialConfigs } from "@/app/utils/json"
 import Link from "next/link"
 import RandomLetterSwapForward from "../fancy/letter-swap-hover"
+import { motion } from "motion/react"
+import { MenuIcon } from "../icons/menu"
 
-export const Header = () => {
+type Props = {
+  navHover: boolean
+  setNavHover: (navHover: boolean) => void
+}
+
+export const Header = ({ navHover, setNavHover }: Props) => {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const { greatingWhatsap, currentPhone, linkedin, github, languages } = loadSocialConfigs()
   const idioms = languages.map((l) => ({ name: l.name, imgLink: l.name === "PT" ? BR : l.name === "EN" ? US : ES }))
 
   return (
-    <header className="flex justify-center w-screen py-0 px-0 md:px-16 border-b border-gray-700/50">
+    <header className="flex justify-center min-h-16 w-screen py-0 px-0 md:px-16 border-b border-gray-700/50">
       <div className="w-full flex flex-wrap px-0 md:px-12 items-center justify-between">
-        {/* Logo with "Web Developer" */}
+        {/* Logo And "Web Developer" */}
         <div className="flex items-center space-x-4 min-w-[120px] md:min-w-[200px]">
           <Link href="/mp">
             <Image
@@ -38,22 +45,65 @@ export const Header = () => {
           />
         </div>
 
-        {/* Navigation (Hidden on mobile, toggled by menu) */}
-        <nav
-          className={`${menuOpen ? "block" : "hidden"
-            } md:flex justify-center items-center w-full md:w-auto`}
+        {/* Wrapper div to handle hover */}
+        <div
+          className="relative p-4 debug"
+          onMouseEnter={() => setNavHover(true)}
         >
-          <ul className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
-            <li className="md:text-md font-bold cursor-pointer text-primary-500 hover:text-primary-700">
-              Projetos
-            </li>
-            <Link href="/mp/bio">
-              <li className="md:text-lg font-bold cursor-pointer text-primary-500 hover:text-primary-700">
-                Bio
-              </li>
-            </Link>
-          </ul>
-        </nav>
+          {/* Navigation Trigger */}
+          {/* <div className="text-gray-300 font-light cursor-pointer">Navegação</div> */}
+          <div className="flex items-center gap-2 text-gray-300 font-light cursor-pointer">
+            <MenuIcon tClass="w-5 h-5 font-light text-gray-300" />
+            <span className="hidden md:inline">Navegação</span>
+          </div>
+
+          {/* Dropdown Menu */}
+          {navHover && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              onMouseLeave={() => setNavHover(false)}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              className="absolute left-0 top-full mt-2 md:w-28 bg-gray-800 border border-gray-600 rounded-lg shadow-lg z-50"
+            >
+              <ul className="flex flex-col space-y-2 p-4">
+              <li>
+                  <a
+                    href="#landing"
+                    className="text-gray-300 font-light md:text-[14px]  cursor-pointer hover:text-primary-500"
+                  >
+                    Landing
+                  </a>
+                </li>
+              <li>
+                  <a
+                    href="#bio"
+                    className="text-gray-300 font-light md:text-[14px]  cursor-pointer hover:text-primary-500"
+                  >
+                    Bio
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#projects"
+                    className="text-gray-300 font-light md:text-[14px] cursor-pointer hover:text-primary-500"
+                  >
+                    Projetos
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#goals"
+                    className="text-gray-300 font-light  md:text-[14px] cursor-pointer hover:text-primary-500"
+                  >
+                    Experiência
+                  </a>
+                </li>
+              </ul>
+            </motion.div>
+          )}
+        </div>
 
         {/* Icons and Language Selector */}
         <div className="flex flex-row items-center mr-6 md:mr-0 gap-4 md:gap-8 md:mt-0">

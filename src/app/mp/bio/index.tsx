@@ -54,7 +54,7 @@ export default function Bio() {
   } as any
 
   return (
-    <div className="md:py-6 2xl:p-6 px-12 flex flex-col md:gap-16 min-w-full mt-4 h-full">
+    <div id="bio" className="min-h-screen md:py-6 2xl:p-6 px-12 flex flex-col md:gap-16">
       <div className="flex flex-col">
         <VerticalCutReveal
           onComplete={() => setShowContent(true)}
