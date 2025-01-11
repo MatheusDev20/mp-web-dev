@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Roboto_Mono, Roboto } from "next/font/google";
 import "./globals.css";
+import { NextIntlClientProvider } from 'next-intl';
 import { ApplicationProvider } from "./providers/application";
+import { getLocale, getMessages } from "next-intl/server";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,17 +30,23 @@ export const metadata: Metadata = {
   description: "Matheus de Paula - Web Developer",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages();
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${RobotoMono.variable} ${roboto.className} antialiased`}
       >
-       <ApplicationProvider>{children}</ApplicationProvider>
+         <NextIntlClientProvider messages={messages}>
+         <ApplicationProvider>{children}</ApplicationProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

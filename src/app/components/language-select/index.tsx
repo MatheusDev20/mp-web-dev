@@ -1,8 +1,12 @@
+"use client"
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { JSX } from "react";
+import React, { JSX, startTransition } from "react";
 import { ChevronDownIcon } from "../icons/chevron.icon";
 import { ChevronUpIcon } from "../icons/chevron-up.icon";
 import Image from "next/image";
+import { Locale } from "@/i18n/config";
+import { setUserLocale } from "@/app/utils/locale";
 
 interface Options {
   imgLink?: string;
@@ -11,17 +15,24 @@ interface Options {
 interface Props {
   options: Options[];
   value: any;
-  onChange: (selected: Options) => void;
 }
 
 export const CountrySelect = ({
   options,
   value,
-  onChange,
 }: Props): JSX.Element => {
   const [openDropDown, setOpenDropDown] = React.useState(false);
-  const flag = options.find((option) => option.name === value) as Options;
+
+  const flag = options.find((option) => option.name.toLowerCase() === value) as Options;
   const optionsButSelected = options.filter((option) => option.name !== value);
+
+
+  function onChange(option: Options) {
+    const locale = option.name.toLowerCase() as Locale;
+    startTransition(() => {
+      setUserLocale(locale);
+    });
+  }
 
   return (
     <div className="relative w-12 md:w-28">
@@ -54,8 +65,8 @@ export const CountrySelect = ({
                 key={i}
                 className="flex items-center gap-2 p-2 hover:bg-primary-700 hover:text-white cursor-pointer transition-colors"
                 onClick={() => {
-                  onChange(option);
-                  setOpenDropDown(false);
+                onChange(option)
+                setOpenDropDown(false);
                 }}
               >
                 {option.imgLink && (

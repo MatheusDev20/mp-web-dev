@@ -9,7 +9,7 @@ export default function MpLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [navHover, setNavHover] = React.useState(false);
+  const [navHover, setNavHover] = React.useState({ socials: false, menu: false });
 
   return (
     <div className="overflow-hidden flex flex-col">
