@@ -9,7 +9,7 @@ import { Projects } from "./projects"
 export default function Page() {
   return (
 
-    <div className="w-full flex-col flex">
+    <div className="w-full p-[96px] flex-col flex scroll-smooth snap-y snap-mandatory">
       <Landing />
       <Bio />
       <Projects />

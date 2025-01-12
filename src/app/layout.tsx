@@ -40,7 +40,7 @@ export default async function RootLayout({
   // side is the easiest way to get started
   const messages = await getMessages();
   return (
-    <html lang={locale}>
+    <html lang={locale} className="scroll-smooth scroll-pt-[92px]">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${RobotoMono.variable} ${roboto.className} antialiased`}
       >

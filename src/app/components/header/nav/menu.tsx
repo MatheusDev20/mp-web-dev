@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { motion } from "motion/react"
 import { MenuIcon } from "../../icons/menu"
 import { useTranslations } from "next-intl"
@@ -7,12 +8,21 @@ type Props = {
   setNavHover: (hoverOptions: { socials: boolean, menu: boolean }) => void
 }
 
-
 export const Menu = ({ navHover, setNavHover }: Props) => {
   const t = useTranslations('Header');
+  const handleHover = (e: any) => {
+    e.stopPropagation()
+    setNavHover({ ...navHover, menu: true, socials: false })
+  }
+
+  const handleLeave = (type: string, e: any) => { 
+    e.stopPropagation()
+    setNavHover({ ...navHover, [type]: false })
+  }
+
   return (<div
     className="relative p-4"
-    onMouseEnter={() => setNavHover({ ...navHover, menu: true, socials: false })}
+    onMouseEnter={handleHover}
   >
     {/* Navigation Trigger */}
     {/* <div className="text-gray-300 font-light cursor-pointer">Navegação</div> */}
@@ -27,7 +37,7 @@ export const Menu = ({ navHover, setNavHover }: Props) => {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}
-        onMouseLeave={() => setNavHover({ ...navHover, menu: false })}
+        onMouseLeave={(e) => handleLeave("menu", e)}
         transition={{ duration: 0.6, ease: "easeInOut" }}
         className="absolute left-0 top-full mt-2 md:w-28 bg-gray-800 border border-gray-600 rounded-lg shadow-lg z-50"
       >

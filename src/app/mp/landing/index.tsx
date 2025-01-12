@@ -2,7 +2,7 @@ import Typewriter from "@/app/components/fancy/typewritter"
 
 export const Landing = () => {
   return (
-    <div className="flex relative min-h-screen justify-center" id="landing">
+    <div className="flex min-h-screen relative justify-center" id="landing">
       <main className="flex absolute flex-col gap-4 p-12 mb-12 top-[15%]" >
         <span className="text-[16px] font-light text-gray-300 place-self-center">
           Olá, me chamo Matheus. Engenheiro de Software Pleno

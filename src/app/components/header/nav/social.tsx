@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { motion } from "motion/react"
 import { Socials } from "../../icons/socials";
 import { LinkedinIcon } from "../../icons/linkedin";
@@ -14,10 +15,19 @@ export const SocialNav = ({ navHover, setNavHover }: Props) => {
   const { linkedin, github } = loadSocialConfigs()
   const t = useTranslations('Header');
 
+  const handleHover = (e: any) => {
+    e.stopPropagation()
+    setNavHover({ ...navHover, menu: false, socials: true })
+  }
+
+  const handleLeave = (type: string, e: any) => { 
+    e.stopPropagation()
+    setNavHover({ ...navHover, [type]: false })
+  }
   return (
     <div
       className="relative p-4"
-      onMouseEnter={() => setNavHover({ ...navHover, socials: true, menu: false })}
+      onMouseEnter={handleHover}
     >
       {/* Navigation Trigger */}
       {/* <div className="text-gray-300 font-light cursor-pointer">Navegação</div> */}
@@ -32,7 +42,7 @@ export const SocialNav = ({ navHover, setNavHover }: Props) => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          onMouseLeave={() => setNavHover({ ...navHover, socials: false })}
+          onMouseLeave={(e) => handleLeave("socials", e)}
           transition={{ duration: 0.6, ease: "easeInOut" }}
           className="absolute left-0 top-full mt-2 md:w-28 bg-gray-800 border border-gray-600 rounded-lg shadow-lg z-50"
         >

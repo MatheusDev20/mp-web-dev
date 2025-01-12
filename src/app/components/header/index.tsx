@@ -25,7 +25,7 @@ export const Header = ({ navHover, setNavHover }: Props) => {
   const options = [{name: "PT", imgLink: BR } ,{ name: "EN", imgLink: US}]
 
   return (
-    <header className="flex justify-center min-h-16 w-screen py-0 px-0 md:px-16 border-b border-gray-700/50">
+    <header className="fixed flex z-50 justify-center md:h-[92px] w-screen py-0 px-0 md:px-16 border-b border-gray-700/50">
       <div className="w-full flex flex-wrap px-0 md:px-12 items-center justify-between">
         {/* Logo And "Web Developer" */}
         <div className="flex items-center space-x-4 min-w-[120px] md:min-w-[200px]">
