@@ -7,3 +7,7 @@ export type Socials = {
   currentPhone: string;
   languages: any[]
 }
+export type Bio = {
+  professionalSummary: string
+  howIgotHere: string
+}
