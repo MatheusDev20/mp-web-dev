@@ -27,11 +27,10 @@ export const SocialNav = ({ navHover, setNavHover }: Props) => {
   return (
     <div
       className="relative p-4"
-      onMouseEnter={handleHover}
     >
       {/* Navigation Trigger */}
       {/* <div className="text-gray-300 font-light cursor-pointer">Navegação</div> */}
-      <div className="flex items-center gap-2 text-gray-300 font-light cursor-pointer">
+      <div onMouseEnter={handleHover}  className="flex items-center gap-2 text-gray-300 font-light cursor-pointer">
         <Socials tClass="w-5 h-5 font-light text-gray-300" />
         <span className="hidden md:inline">{t("socials")}</span>
       </div>

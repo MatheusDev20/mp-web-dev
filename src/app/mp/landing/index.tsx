@@ -1,4 +1,5 @@
 import Typewriter from "@/app/components/fancy/typewritter"
+import { NextSection } from "@/app/components/next-section"
 
 export const Landing = () => {
   return (
@@ -21,6 +22,7 @@ export const Landing = () => {
           </button>
         </div>
       </main>
+      <NextSection next="#bio" className="absolute 2xl:bottom-52 md:bottom-44 bottom-12 flex justify-center mb-4" />
     </div>
   )
 }

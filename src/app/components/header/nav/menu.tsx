@@ -20,13 +20,10 @@ export const Menu = ({ navHover, setNavHover }: Props) => {
     setNavHover({ ...navHover, [type]: false })
   }
 
-  return (<div
-    className="relative p-4"
-    onMouseEnter={handleHover}
-  >
+  return (<div className="relative p-4">
     {/* Navigation Trigger */}
     {/* <div className="text-gray-300 font-light cursor-pointer">Navegação</div> */}
-    <div className="flex items-center gap-2 text-gray-300 font-light cursor-pointer">
+    <div onMouseEnter={handleHover} className=" flex items-center gap-2 text-gray-300 font-light cursor-pointer">
       <MenuIcon tClass="w-5 h-5 font-light text-gray-300" />
       <span className="hidden md:inline">{t("navigation")}</span>
     </div>
