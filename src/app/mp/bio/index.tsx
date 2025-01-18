@@ -57,7 +57,7 @@ export default function Bio() {
     delay: 0,
   } as any
   return (
-    <div id="bio" className="debug min-h-[calc(100vh-92px)] md:py-24 2xl:p-12 relative px-12 flex flex-col md:gap-8">
+    <div id="bio" className="min-h-[calc(100vh-92px)] md:py-24 2xl:p-12 relative px-12 flex flex-col md:gap-8">
       <div className="flex flex-col text-center mb-2">
         <Typewriter text="Um pouco sobre mim" showCursor={false} className=" text-white text-lg font-bold md:text-3xl" />
       </div>
