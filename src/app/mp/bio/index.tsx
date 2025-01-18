@@ -57,9 +57,9 @@ export default function Bio() {
     delay: 0,
   } as any
   return (
-    <div id="bio" className="min-h-screen md:py-24 2xl:p-12 relative px-12 flex flex-col md:gap-8">
+    <div id="bio" className="debug min-h-[calc(100vh-92px)] md:py-24 2xl:p-12 relative px-12 flex flex-col md:gap-8">
       <div className="flex flex-col text-center mb-2">
-      <Typewriter text="Um pouco sobre mim e minha carreira" showCursor={false} className=" text-white text-lg font-bold md:text-3xl" />
+        <Typewriter text="Um pouco sobre mim" showCursor={false} className=" text-white text-lg font-bold md:text-3xl" />
       </div>
 
       <motion.div
@@ -119,7 +119,17 @@ export default function Bio() {
         </AccordionItem>
 
       </motion.div>
-      <NextSection next="#projects" className="2xl:bottom-52 md:bottom-44 bottom-12 flex self-center mt-8" />
+      {!openAccordionId && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.2, delay: 0.2 }}
+          className="absolute bottom-[92px] flex self-center"
+        >
+          <NextSection next="#projects" className={`absolute bottom-[92px] flex self-center`} />
+        </motion.div>
+      )}
+      {/* {!openAccordionId && <NextSection next="#projects" className={`absolute bottom-[92px] flex self-center`} /> }  */}
     </div>
   );
 }

@@ -3,8 +3,8 @@ import { NextSection } from "@/app/components/next-section"
 
 export const Landing = () => {
   return (
-    <div className="flex min-h-screen relative justify-center" id="landing">
-      <main className="flex absolute flex-col gap-4 p-12 mb-12 top-[15%]" >
+    <div className="flex min-h-[calc(100vh-92px)] justify-center" id="landing">
+      <main className="flex absolute flex-col gap-4 p-12 top-[35%]" >
         <span className="text-[16px] font-light text-gray-300 place-self-center">
           Olá, me chamo Matheus. Engenheiro de Software Pleno
         </span>
@@ -22,7 +22,7 @@ export const Landing = () => {
           </button>
         </div>
       </main>
-      <NextSection next="#bio" className="absolute 2xl:bottom-52 md:bottom-44 bottom-12 flex justify-center mb-4" />
+      <NextSection next="#bio" className="absolute bottom-[92px] flex justify-center" />
     </div>
   )
 }

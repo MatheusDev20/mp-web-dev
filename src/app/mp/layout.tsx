@@ -16,7 +16,7 @@ export default function MpLayout({
       {/* Fixed Header */}
       <Header navHover={navHover} setNavHover={setNavHover} />
       {/* Main Content */}
-      <div className="flex-grow">{children}</div>
+      {children}
       <StickFooter />
     </div>
   );
