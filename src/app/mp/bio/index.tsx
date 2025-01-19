@@ -7,8 +7,8 @@ import VerticalCutReveal from "@/app/components/fancy/vertical-reveal";
 import { ChevronUpIcon } from "@/app/components/icons/chevron-up.icon";
 import { ChevronDownIcon } from "@/app/components/icons/chevron.icon";
 import { NextSection } from "@/app/components/next-section";
-import { loadBioConfigs } from "@/app/utils/json";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 // import Image from "next/image";
 import { useState } from "react";
 
@@ -44,8 +44,8 @@ const AccordionItem = ({ title, id, isOpen, setAccordionOpen, children }: Accord
 
 export default function Bio() {
   const [openAccordionId, setOpenAccordionId] = useState<number | null>(null);
-  const { professionalSummary, howIgotHere } = loadBioConfigs();
 
+  const t = useTranslations("Bio")
   const toggleAccordion = (id: number) => {
     setOpenAccordionId(openAccordionId === id ? null : id);
   };
@@ -59,7 +59,7 @@ export default function Bio() {
   return (
     <div id="bio" className="min-h-[calc(100vh-92px)] md:py-24 2xl:p-12 relative px-12 flex flex-col md:gap-8">
       <div className="flex flex-col text-center mb-2">
-        <Typewriter text="Um pouco sobre mim" showCursor={false} className=" text-white text-lg font-bold md:text-3xl" />
+        <Typewriter text={t("title")} showCursor={false} className=" text-white text-lg font-bold md:text-3xl" />
       </div>
 
       <motion.div
@@ -69,7 +69,7 @@ export default function Bio() {
         className="w-full max-w-[80%] flex flex-col gap-4 md:gap-16 self-center"
       >
         <AccordionItem
-          title="Como cheguei aqui?"
+          title={t("howDoIgetHere")}
           id={1}
           isOpen={openAccordionId === 1}
           setAccordionOpen={toggleAccordion}
@@ -81,11 +81,11 @@ export default function Bio() {
             reverse={true}
             transition={transition}
           >
-            {howIgotHere}
+            {t("gotHereSummary")}
           </VerticalCutReveal>
         </AccordionItem>
         <AccordionItem
-          title="Caminhada profissional"
+          title={t("professionalPath")}
           id={2}
           isOpen={openAccordionId === 2}
           setAccordionOpen={toggleAccordion}
@@ -97,12 +97,12 @@ export default function Bio() {
             reverse={true}
             transition={transition}
           >
-            {professionalSummary}
+          {t("professionalSummary")}
           </VerticalCutReveal>
         </AccordionItem>
 
         <AccordionItem
-          title="Hobbies & Interesses"
+          title={t("hobbies")}
           id={3}
           isOpen={openAccordionId === 3}
           setAccordionOpen={toggleAccordion}
@@ -114,7 +114,7 @@ export default function Bio() {
             reverse={true}
             transition={transition}
           >
-            {professionalSummary}
+            Hobbies & Interesses
           </VerticalCutReveal>
         </AccordionItem>
 
