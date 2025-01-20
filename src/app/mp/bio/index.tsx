@@ -27,7 +27,7 @@ const AccordionItem = ({ title, id, isOpen, setAccordionOpen, children }: Accord
         className="transition ease-out delay-75 w-full flex hover:font-light justify-between items-center py-4 px-0 text-left text-gray-300 text-lg font-semibold focus:outline-none hover:text-primary-700"
         onClick={() => setAccordionOpen(id)}
       >
-        <span className="text-[12px]">{title}</span>
+        <span className="md:text-lg text-[12px]">{title}</span>
         {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
       </button>
       <div
