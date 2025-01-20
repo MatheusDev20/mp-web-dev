@@ -102,7 +102,7 @@ export default function Bio() {
         </AccordionItem>
 
         <AccordionItem
-          title={t("hobbies")}
+          title={t("hobbiesTitle")}
           id={3}
           isOpen={openAccordionId === 3}
           setAccordionOpen={toggleAccordion}
@@ -114,7 +114,7 @@ export default function Bio() {
             reverse={true}
             transition={transition}
           >
-            Hobbies & Interesses
+            {t("hobbies")}
           </VerticalCutReveal>
         </AccordionItem>
 
