@@ -6,7 +6,6 @@ import US from "../../../../public/usa.svg"
 import Image from "next/image"
 import React from "react"
 import { CountrySelect } from "../language-select"
-import { HamburguerIcon } from "../icons/hamburguer"
 import Link from "next/link"
 import RandomLetterSwapForward from "../fancy/letter-swap-hover"
 import { SocialNav } from "./nav/social"
@@ -19,13 +18,12 @@ type Props = {
 }
 
 export const Header = ({ navHover, setNavHover }: Props) => {
-  const [menuOpen, setMenuOpen] = React.useState(false);
 
   const locale = useLocale();
   const options = [{name: "PT", imgLink: BR } ,{ name: "EN", imgLink: US}]
 
   return (
-    <header className="flex justify-center md:h-[92px] w-screen py-0 px-0 md:px-16 border-b border-gray-700/50">
+    <header className="flex justify-center md:h-[92px] w-full py-0 px-0 md:px-16 border-b border-gray-700/50">
       <div className="w-full flex flex-wrap px-0 md:px-12 items-center justify-between">
         {/* Logo And "Web Developer" */}
         <div className="flex items-center space-x-4 min-w-[120px] md:min-w-[200px]">
@@ -56,13 +54,6 @@ export const Header = ({ navHover, setNavHover }: Props) => {
           />
         </div>
       </div>
-      {/* Hamburger Menu for Mobile */}
-      <button
-        className="md:hidden text-white focus:outline-none mr-1"
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        <HamburguerIcon tClass="w-6 h-6" />
-      </button>
     </header>
 
   )
