@@ -1,7 +1,7 @@
 {
   "Header": {
     "navigation": "Navigation",
-    "socials": "Socials Links"
+    "socials": "Socials"
   },
   "Landing": {
     "mainDescription": "Hello, I'm Matheus. A mid level Software Engineer",
@@ -12,8 +12,13 @@
     "title": "A little bit about me",
     "howDoIgetHere": "How did I get here?",
     "professionalPath": "Professional Path",
-    "hobbies": "Hobbies & Interests",
+    "hobbiesTitle": "Hobbies & Interests",
+    "hobbies": "Outside of my working hours, I enjoy reading books related to economics and philosophy, staying up to date with the latest movie and TV series releases, and coding projects—you can check them out here.",
     "gotHereSummary": "I’ve always been fascinated by technology and computers. During high school, while I was taking a technical course, I had my first experience programming microcontrollers and working with low-level software. Even with that background, I ended up not pursuing a degree in technology and shifted to engineering. It was only two years later, in 2019, that I decided development and technology would be my professional path—and I haven’t regretted that choice since. 👨‍💻",
     "professionalSummary": "I have been working as a Software Developer for 5 years, taking part in various projects and using different technologies. My main experience is with B2B solutions aimed at the Customer Experience market. I have been involved in the entire project lifecycle—from requirements definition to Go-Live—helping to improve the experience of clients of large companies in the national market."
+  },
+  "Project": {
+    "title": "Personal Projects",
+    "description": "Here are some of the projects I've been working on"
   }
 }

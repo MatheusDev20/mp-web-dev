@@ -1,36 +1,36 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { motion } from "motion/react"
+import { motion } from "motion/react";
 import { Socials } from "../../icons/socials";
 import { LinkedinIcon } from "../../icons/linkedin";
 import { GithubIcon } from "../../icons/github";
-import { loadSocialConfigs } from "@/app/utils/json";
 import { useTranslations } from "next-intl";
 
 type Props = {
-  navHover: { socials: boolean, menu: boolean }
-  setNavHover: (hoverOptions: { socials: boolean, menu: boolean }) => void
-}
+  navHover: { socials: boolean; menu: boolean };
+  setNavHover: (hoverOptions: { socials: boolean; menu: boolean }) => void;
+};
 
 export const SocialNav = ({ navHover, setNavHover }: Props) => {
-  const { linkedin, github } = loadSocialConfigs()
-  const t = useTranslations('Header');
+  // const { linkedin, github } = loadSocialConfigs()
+  const t = useTranslations("Header");
 
   const handleHover = (e: any) => {
-    e.stopPropagation()
-    setNavHover({ ...navHover, menu: false, socials: true })
-  }
+    e.stopPropagation();
+    setNavHover({ ...navHover, menu: false, socials: true });
+  };
 
-  const handleLeave = (type: string, e: any) => { 
-    e.stopPropagation()
-    setNavHover({ ...navHover, [type]: false })
-  }
+  const handleLeave = (type: string, e: any) => {
+    e.stopPropagation();
+    setNavHover({ ...navHover, [type]: false });
+  };
   return (
-    <div
-      className="relative p-4"
-    >
+    <div className="relative p-4">
       {/* Navigation Trigger */}
       {/* <div className="text-gray-300 font-light cursor-pointer">Navegação</div> */}
-      <div onMouseEnter={handleHover}  className="flex items-center gap-2 text-gray-300 font-light cursor-pointer">
+      <div
+        onMouseEnter={handleHover}
+        className="flex items-center gap-2 text-gray-300 font-light cursor-pointer"
+      >
         <Socials tClass="w-5 h-5 font-light text-gray-300" />
         <span className="hidden md:inline">{t("socials")}</span>
       </div>
@@ -49,7 +49,7 @@ export const SocialNav = ({ navHover, setNavHover }: Props) => {
             <li>
               <a
                 target="_blank"
-                href={linkedin}
+                href="https://www.linkedin.com/in/matheusdev20/"
                 className="text-gray-300 flex font-light gap-2 md:text-[14px] items-center cursor-pointer hover:text-primary-500"
               >
                 <LinkedinIcon tClass="text-white cursor-pointer w-4 h-4 md:w-8 md:h-8" />
@@ -59,7 +59,7 @@ export const SocialNav = ({ navHover, setNavHover }: Props) => {
             <li>
               <a
                 target="_blank"
-                href={github}
+                href="https://github.com/MatheusDev20"
                 className="flex text-gray-300 font-light md:text-[14px] gap-2 cursor-pointer hover:text-primary-500"
               >
                 <GithubIcon tClass="text-white cursor-pointer w-4 h-4 md:w-5 md:h-5" />
@@ -70,6 +70,5 @@ export const SocialNav = ({ navHover, setNavHover }: Props) => {
         </motion.div>
       )}
     </div>
-  )
-
-}
+  );
+};

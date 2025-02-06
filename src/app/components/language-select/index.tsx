@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { JSX, startTransition } from "react";
@@ -17,15 +17,13 @@ interface Props {
   value: any;
 }
 
-export const CountrySelect = ({
-  options,
-  value,
-}: Props): JSX.Element => {
+export const CountrySelect = ({ options, value }: Props): JSX.Element => {
   const [openDropDown, setOpenDropDown] = React.useState(false);
 
-  const flag = options.find((option) => option.name.toLowerCase() === value) as Options;
+  const flag = options.find(
+    (option) => option.name.toLowerCase() === value,
+  ) as Options;
   const optionsButSelected = options.filter((option) => option.name !== value);
-
 
   function onChange(option: Options) {
     const locale = option.name.toLowerCase() as Locale;
@@ -65,8 +63,8 @@ export const CountrySelect = ({
                 key={i}
                 className="flex items-center gap-2 p-2 hover:bg-primary-700 hover:text-white cursor-pointer transition-colors"
                 onClick={() => {
-                onChange(option)
-                setOpenDropDown(false);
+                  onChange(option);
+                  setOpenDropDown(false);
                 }}
               >
                 {option.imgLink && (
@@ -78,7 +76,9 @@ export const CountrySelect = ({
                     src={option.imgLink || ""}
                   />
                 )}
-                <span className='text-gray-300 hidden md:block'>{option.name}</span>
+                <span className="text-gray-300 hidden md:block">
+                  {option.name}
+                </span>
               </div>
             ))}
           </div>

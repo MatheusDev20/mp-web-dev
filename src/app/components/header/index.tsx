@@ -1,31 +1,31 @@
-"use client"
-import MP from "../../../../public/mp-dark.png"
-import BR from "../../../../public/brazil.svg"
-import US from "../../../../public/usa.svg"
+"use client";
+import MP from "../../../../public/mp-dark.png";
+import BR from "../../../../public/brazil.svg";
+import US from "../../../../public/usa.svg";
 
-import Image from "next/image"
-import React from "react"
-import { CountrySelect } from "../language-select"
-import { HamburguerIcon } from "../icons/hamburguer"
-import Link from "next/link"
-import RandomLetterSwapForward from "../fancy/letter-swap-hover"
-import { SocialNav } from "./nav/social"
-import { Menu } from "./nav/menu"
-import { useLocale} from "next-intl"
+import Image from "next/image";
+import React from "react";
+import { CountrySelect } from "../language-select";
+import Link from "next/link";
+import RandomLetterSwapForward from "../fancy/letter-swap-hover";
+import { SocialNav } from "./nav/social";
+import { Menu } from "./nav/menu";
+import { useLocale } from "next-intl";
 
 type Props = {
-  navHover: { socials: boolean, menu: boolean }
-  setNavHover: (hoverOptions: { socials: boolean, menu: boolean }) => void
-}
+  navHover: { socials: boolean; menu: boolean };
+  setNavHover: (hoverOptions: { socials: boolean; menu: boolean }) => void;
+};
 
 export const Header = ({ navHover, setNavHover }: Props) => {
-  const [menuOpen, setMenuOpen] = React.useState(false);
-
   const locale = useLocale();
-  const options = [{name: "PT", imgLink: BR } ,{ name: "EN", imgLink: US}]
+  const options = [
+    { name: "PT", imgLink: BR },
+    { name: "EN", imgLink: US },
+  ];
 
   return (
-    <header className="flex justify-center md:h-[92px] w-screen py-0 px-0 md:px-16 border-b border-gray-700/50">
+    <header className="flex justify-center md:h-[92px] w-full py-0 px-0 md:px-16 border-b border-gray-700/50">
       <div className="w-full flex flex-wrap px-0 md:px-12 items-center justify-between">
         {/* Logo And "Web Developer" */}
         <div className="flex items-center space-x-4 min-w-[120px] md:min-w-[200px]">
@@ -50,20 +50,9 @@ export const Header = ({ navHover, setNavHover }: Props) => {
         {/* Icons and Language Selector */}
         <div className="flex flex-row items-center mr-6 md:mr-0 gap-4 md:gap-8 md:mt-0">
           {/* Country Select */}
-          <CountrySelect
-            value={locale}
-            options={options}
-          />
+          <CountrySelect value={locale} options={options} />
         </div>
       </div>
-      {/* Hamburger Menu for Mobile */}
-      <button
-        className="md:hidden text-white focus:outline-none mr-1"
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        <HamburguerIcon tClass="w-6 h-6" />
-      </button>
     </header>
-
-  )
-}
+  );
+};

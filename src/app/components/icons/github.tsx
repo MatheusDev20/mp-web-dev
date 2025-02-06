@@ -4,11 +4,10 @@ type Props = {
   tClass: string;
 };
 
-
-export const GithubIcon = ({tClass}: Props) => {
+export const GithubIcon = ({ tClass }: Props) => {
   return (
     <svg
-      className={`${tClass } fill-white hover:fill-cyan-300 transition-colors duration-200 cursor-pointer`}
+      className={`${tClass} fill-white hover:fill-cyan-300 transition-colors duration-200 cursor-pointer`}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 64 64"
     >

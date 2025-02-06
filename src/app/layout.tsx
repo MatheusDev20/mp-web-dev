@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Roboto_Mono, Roboto } from "next/font/google";
 import "./globals.css";
-import { NextIntlClientProvider } from 'next-intl';
+import { NextIntlClientProvider } from "next-intl";
 import { ApplicationProvider } from "./providers/application";
 import { getLocale, getMessages } from "next-intl/server";
 
@@ -18,12 +18,12 @@ const geistMono = Geist_Mono({
 const RobotoMono = Roboto_Mono({
   variable: "--font-roboto-mono",
   subsets: ["latin"],
-})
+});
 
 const roboto = Roboto({
-  weight: '400',
+  weight: "400",
   subsets: ["latin"],
-})
+});
 
 export const metadata: Metadata = {
   title: "Matheus de Paula - Web Developer",
@@ -42,8 +42,8 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${RobotoMono.variable} ${roboto.className} antialiased`}
       >
-         <NextIntlClientProvider messages={messages}>
-         <ApplicationProvider>{children}</ApplicationProvider>
+        <NextIntlClientProvider messages={messages}>
+          <ApplicationProvider>{children}</ApplicationProvider>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -4,8 +4,7 @@ type Props = {
   tClass: string;
 };
 
-
-export const LinkedinIcon = ({tClass}: Props) => {
+export const LinkedinIcon = ({ tClass }: Props) => {
   return (
     <svg
       className={`${tClass} fill-white hover:fill-cyan-300 transition-colors duration-200 cursor-pointer`}
