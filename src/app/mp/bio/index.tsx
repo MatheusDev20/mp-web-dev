@@ -20,9 +20,18 @@ type AccordionItemProps = {
   children: React.ReactNode;
 };
 
-const AccordionItem = ({ title, id, isOpen, setAccordionOpen, children }: AccordionItemProps) => {
+const AccordionItem = ({
+  title,
+  id,
+  isOpen,
+  setAccordionOpen,
+  children,
+}: AccordionItemProps) => {
   return (
-    <div className="md:border-b md:border-primary-800 md:px-0 px-4" onClick={() => setAccordionOpen(id)}>
+    <div
+      className="md:border-b md:border-primary-800 md:px-0 px-4"
+      onClick={() => setAccordionOpen(id)}
+    >
       <button
         className="transition ease-out delay-75 w-full flex hover:font-light justify-between items-center py-4 px-0 text-left text-gray-300 text-lg font-semibold focus:outline-none hover:text-primary-700"
         onClick={() => setAccordionOpen(id)}
@@ -31,11 +40,17 @@ const AccordionItem = ({ title, id, isOpen, setAccordionOpen, children }: Accord
         {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
       </button>
       <div
-        className={`md:overflow-hidden overflow-y-auto transition-[max-height] duration-500 ease-in-out ${isOpen ? "max-h-[300px]" : "max-h-0"
-          }`}
+        className={`md:overflow-hidden overflow-y-auto transition-[max-height] duration-500 ease-in-out ${
+          isOpen ? "max-h-[300px]" : "max-h-0"
+        }`}
       >
         <main>
-          <span style={{ lineHeight: "1.6rem" }} className="md:px-6 pb-2 px-0 md:pb-4 text-gray-400 sm:text-sm md:text-[16px]">{children}</span>
+          <span
+            style={{ lineHeight: "1.6rem" }}
+            className="md:px-6 pb-2 px-0 md:pb-4 text-gray-400 sm:text-sm md:text-[16px]"
+          >
+            {children}
+          </span>
         </main>
       </div>
     </div>
@@ -45,7 +60,7 @@ const AccordionItem = ({ title, id, isOpen, setAccordionOpen, children }: Accord
 export default function Bio() {
   const [openAccordionId, setOpenAccordionId] = useState<number | null>(null);
 
-  const t = useTranslations("Bio")
+  const t = useTranslations("Bio");
   const toggleAccordion = (id: number) => {
     setOpenAccordionId(openAccordionId === id ? null : id);
   };
@@ -55,12 +70,18 @@ export default function Bio() {
     stiffness: 250,
     damping: 30,
     delay: 0,
-  } as any
+  } as any;
   return (
-
-    <div id="bio" className="min-h-[calc(100vh-92px)] 2xl:py-12 md:py-0 py-24 relative px-12 flex flex-col gap-12 md:gap-8">
+    <div
+      id="bio"
+      className="min-h-[calc(100vh-92px)] 2xl:py-12 md:py-0 py-24 relative px-12 flex flex-col gap-12 md:gap-8"
+    >
       <div className="flex flex-col text-center mb-2">
-        <Typewriter text={t("title")} showCursor={false} className=" text-white text-[16px] font-bold md:text-[24px]" />
+        <Typewriter
+          text={t("title")}
+          showCursor={false}
+          className=" text-white text-[16px] font-bold md:text-[24px]"
+        />
       </div>
 
       <motion.div
@@ -132,7 +153,10 @@ export default function Bio() {
           transition={{ duration: 0.2, delay: 0.2 }}
           className="absolute bottom-[92px] flex self-center"
         >
-          <NextSection next="#projects" className={`absolute 2xl:bottom-[30px] md:bottom-0 flex self-center`} />
+          <NextSection
+            next="#projects"
+            className={`absolute 2xl:bottom-[30px] md:bottom-0 flex self-center`}
+          />
         </motion.div>
       )}
       {/* {!openAccordionId && <NextSection next="#projects" className={`absolute bottom-[92px] flex self-center`} /> }  */}

@@ -5,10 +5,10 @@ export type Socials = {
   github: string;
   greatingWhatsap: string;
   currentPhone: string;
-  languages: any[]
-}
+  languages: any[];
+};
 
 export type Bio = {
-  professionalSummary: string
-  howIgotHere: string
-}
+  professionalSummary: string;
+  howIgotHere: string;
+};
