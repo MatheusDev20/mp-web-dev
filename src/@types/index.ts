@@ -12,3 +12,8 @@ export type Bio = {
   professionalSummary: string;
   howIgotHere: string;
 };
+
+export type Project = {
+  img: string;
+  title: string;
+};
