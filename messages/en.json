@@ -4,6 +4,7 @@
     "socials": "Socials"
   },
   "Landing": {
+    "lang": "en",
     "mainDescription": "Hello, I'm Matheus. A mid level Software Engineer",
     "role": "Python/Javascript Full Stack Developer",
     "getInTouch": "Get in touch"

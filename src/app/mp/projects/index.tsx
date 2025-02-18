@@ -22,14 +22,12 @@ export const Projects = () => {
         </div>
       ) : (
         <>
-          {" "}
           <header className="max-w-[50%] flex flex-col gap-2">
             <h2 className="text-white self-center font-semibold md:text-2xl">
               {t("title")}
             </h2>
-            {/* <p className="text-gray-300">{t("description")}</p> */}
           </header>
-          <div className="min-w-full grid md:grid-cols-3 grid-cols-2 p-4">
+          <div className="min-w-full grid md:grid-cols-3 grid-cols-2 p-4 pt-4 md:pt-16">
             {projects.map((project, index) => {
               return (
                 <ProjectsCard

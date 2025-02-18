@@ -4,6 +4,7 @@
       "socials": "Sociais"
   },
   "Landing": {
+    "lang": "pt",
     "mainDescription": "Olá, me chamo Matheus. Engenheiro de Software Pleno",
     "role": "Desenvolvedor FullStack Javascript/Python",
     "getInTouch": "Contato"

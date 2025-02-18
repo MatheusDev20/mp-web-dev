@@ -20,7 +20,6 @@ export const ProjectsCard = ({ img, title }: Props) => {
           <span className="font-semibold mt-2 text-gray-300 text-base sm:text-sm md:text-lg">
             {title}
           </span>
-
           <span className="pt-8 sm:mt-2 flex gap-2 sm:gap-1 mt-7 hover:text-primary-700 cursor-pointer transition-all delay-100 font-semibold items-center text-sm">
             Saber mais <ArrowLongRight tClass="h-5 w-4 sm:h-4 sm:w-3" />
           </span>
