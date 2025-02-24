@@ -26,8 +26,8 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Matheus de Paula - Web Developer",
-  description: "Matheus de Paula - Web Developer",
+  title: "Matheus de Paula",
+  description: "Matheus de Paula",
 };
 
 export default async function RootLayout({
