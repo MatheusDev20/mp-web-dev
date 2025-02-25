@@ -10,7 +10,7 @@ export const Projects = () => {
   return (
     <div
       id="projects"
-      className="min-h-[calc(100vh-92px)] flex flex-col md:gap-8 items-center md:p-12"
+      className="min-h-[calc(100vh-92px)] flex flex-col px-3 md:gap-8 items-center md:p-12"
     >
       {!PROJECTS_ENABLE_FLAG ? (
         <div className="text-white text-center">
@@ -21,24 +21,23 @@ export const Projects = () => {
           </div>
         </div>
       ) : (
-        <>
-          <header className="max-w-[50%] flex flex-col gap-2">
+        <div className="flex md:mt-0 flex-col items-center">
+          <header className="max-w-[50%] mb-8 md:mb-0 flex flex-col gap-2">
             <h2 className="text-white self-center font-semibold md:text-2xl">
               {t("title")}
             </h2>
           </header>
-          <div className="min-w-full grid md:grid-cols-3 grid-cols-2 p-4 pt-4 md:pt-16">
-            {projects.map((project, index) => {
-              return (
-                <ProjectsCard
-                  key={index}
-                  img={project.img}
-                  title={project.title}
-                />
-              );
-            })}
+          <div className="min-w-full h-full flex-col md:flex-row flex gap-8 md:gap-12 md:p-24 pt-4 md:pt-16">
+            {projects.map((project, index) => (
+              <ProjectsCard
+                key={index}
+                img={project.img}
+                title={project.title}
+                smallDescription={project.smallDescription}
+              />
+            ))}
           </div>
-        </>
+        </div>
       )}
     </div>
   );
