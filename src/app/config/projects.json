@@ -2,7 +2,13 @@
   "data": [
     {
       "title": "Caminho do Lar",
-      "img": "/projects/caminho_do_lar.png"
+      "img": "/projects/caminho_do_lar.png",
+      "smallDescription": "Plataforma para conectar caes e gatos em situação de rua a potenciais doadores"
+    },
+    {
+      "title": "People Pilot",
+      "img": "/projects/people_pilot_dash.png",
+      "smallDescription": "Solução SASS para organização e manutenção de colaboradores"
     }
   ]
 }

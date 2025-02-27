@@ -16,4 +16,5 @@ export type Bio = {
 export type Project = {
   img: string;
   title: string;
+  smallDescription: string;
 };
