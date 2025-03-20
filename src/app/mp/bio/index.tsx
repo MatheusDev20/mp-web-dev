@@ -90,7 +90,7 @@ export default function Bio() {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="w-full md:max-w-[80%] flex flex-col gap-4 md:gap-16 self-center"
       >
-        <div className="bg-[#171717] rounded-2xl transition-colors duration-500 ease-in-out hover:bg-gray-800 shadow-md md:p-4 2xl:p-8">
+        <div className="rounded-2xl transition-colors duration-500 ease-in-out hover:bg-gray-800 shadow-md md:p-4 2xl:p-8">
           <AccordionItem
             title={t("howDoIgetHere")}
             id={1}
@@ -108,7 +108,7 @@ export default function Bio() {
             </VerticalCutReveal>
           </AccordionItem>
         </div>
-        <div className="bg-[#171717] rounded-2xl transition-colors duration-500 ease-in-out hover:bg-gray-800 shadow-md md:p-4 2xl:p-8">
+        <div className="rounded-2xl transition-colors duration-500 ease-in-out hover:bg-gray-800 shadow-md md:p-4 2xl:p-8">
           <AccordionItem
             title={t("professionalPath")}
             id={2}
@@ -127,7 +127,7 @@ export default function Bio() {
           </AccordionItem>
         </div>
 
-        <div className="bg-[#171717] rounded-2xl transition-colors duration-500 ease-in-out hover:bg-gray-800 shadow-md md:p-4 2xl:p-8">
+        <div className="rounded-2xl transition-colors duration-500 ease-in-out hover:bg-gray-800 shadow-md md:p-4 2xl:p-8">
           <AccordionItem
             title={t("hobbiesTitle")}
             id={3}

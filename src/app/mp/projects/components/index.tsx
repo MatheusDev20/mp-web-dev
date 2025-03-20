@@ -8,9 +8,9 @@ type Props = {
 
 export const ProjectsCard = ({ img, title, smallDescription }: Props) => {
   return (
-    <div className="border transition-colors p-2 md:p-0 duration-500 ease-in-out w-full cursor-pointer hover:bg-gray-800 flex flex-col border-gray-600">
+    <div className="border transition-colors min-h-full md:min-h-[520px] p-2 md:p-0 duration-500 ease-in-out w-full cursor-pointer hover:bg-gray-800 flex flex-col border-gray-600">
       <header
-        className="bg-cover bg-no-repeat min-h-[120px] sm:h-[200px] w-full cursor-pointer"
+        className="bg-cover bg-no-repeat min-h-[120px] sm:h-[400px] w-full cursor-pointer"
         style={{
           backgroundImage: `url(${img})`,
         }}
