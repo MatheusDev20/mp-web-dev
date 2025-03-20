@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from "tailwindcss";
 
 export default {
+  darkMode: ["class"],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,36 +11,75 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         primary: {
-          50: "#e0ffff", // Very light cyan
-          100: "#b3ffff", // Light cyan
-          200: "#80ffff", // Lighter cyan
-          300: "#4dffff", // Light vibrant cyan
-          400: "#26ffff", // Slightly less bright cyan
-          500: "#00ffff", // Bright cyan (logo color)
-          600: "#00e6e6", // Slightly darker cyan
-          700: "#00bfbf", // Darker cyan
-          800: "#009999", // Even darker cyan
-          900: "#007373", // Very dark cyan
-          950: "#004d4d", // Near black cyan
+          "50": "#e0ffff",
+          "100": "#b3ffff",
+          "200": "#80ffff",
+          "300": "#4dffff",
+          "400": "#26ffff",
+          "500": "#00ffff",
+          "600": "#00e6e6",
+          "700": "#00bfbf",
+          "800": "#009999",
+          "900": "#007373",
+          "950": "#004d4d",
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          50: "#ffe0f5", // Very light pink
-          100: "#ffb3e6", // Light pink
-          200: "#ff80d8", // Soft pink
-          300: "#ff4dcc", // Vibrant pink
-          400: "#ff26bf", // Bright pink-purple
-          500: "#ff00b3", // Main secondary color (magenta-pink)
-          600: "#e600a1", // Slightly darker magenta
-          700: "#bf0085", // Dark magenta
-          800: "#99006a", // Deeper magenta
-          900: "#730052", // Very dark magenta
-          950: "#4d0038", // Near black magenta
+          "50": "#ffe0f5",
+          "100": "#ffb3e6",
+          "200": "#ff80d8",
+          "300": "#ff4dcc",
+          "400": "#ff26bf",
+          "500": "#ff00b3",
+          "600": "#e600a1",
+          "700": "#bf0085",
+          "800": "#99006a",
+          "900": "#730052",
+          "950": "#4d0038",
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
         },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        chart: {
+          "1": "hsl(var(--chart-1))",
+          "2": "hsl(var(--chart-2))",
+          "3": "hsl(var(--chart-3))",
+          "4": "hsl(var(--chart-4))",
+          "5": "hsl(var(--chart-5))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 } satisfies Config;
