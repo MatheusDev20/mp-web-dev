@@ -9,6 +9,11 @@
       "title": "People Pilot",
       "img": "/projects/people_pilot_dash.png",
       "smallDescription": "Solução SASS para organização e manutenção de colaboradores"
+    },
+    {
+      "title": "Daily Manager",
+      "img": "/projects/daily-manager.png",
+      "smallDescription": "Solução para manejar reuniões e tarefas do time desenvolvimento de forma efiiciente"
     }
   ]
 }
