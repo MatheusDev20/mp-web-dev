@@ -1,24 +1,42 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-
-import Typewriter from "@/app/components/fancy/typewritter";
 // import Me from "../../../../public/me.png"
 import VerticalCutReveal from "@/app/components/fancy/vertical-reveal";
 import { ChevronUpIcon } from "@/app/components/icons/chevron-up.icon";
 import { ChevronDownIcon } from "@/app/components/icons/chevron.icon";
-import { NextSection } from "@/app/components/next-section";
 import { motion } from "framer-motion";
+import { BriefcaseBusiness, Code, User } from "lucide-react";
 import { useTranslations } from "next-intl";
-// import Image from "next/image";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 
 type AccordionItemProps = {
-  title: string;
+  title: ReactNode;
   id: number;
   isOpen: boolean;
   setAccordionOpen: (id: number) => void;
   children: React.ReactNode;
 };
+
+export const AccordionSections = [
+  {
+    id: 1,
+    title: "aboutMe",
+    content: "aboutMeSummary",
+    icon: <User className="w-8 h-8 text-green-400" />,
+  },
+  {
+    id: 2,
+    title: "workExperience",
+    content: "workExperienceSummary",
+    icon: <BriefcaseBusiness className="w-8 h-8 text-red-400" />,
+  },
+  {
+    id: 3,
+    title: "skills",
+    content: "skillsSummary",
+    icon: <Code className="w-8 h-8 text-blue-600" />,
+  },
+];
 
 const AccordionItem = ({
   title,
@@ -28,10 +46,7 @@ const AccordionItem = ({
   children,
 }: AccordionItemProps) => {
   return (
-    <div
-      className="md:border-b md:border-primary-800 md:px-0 px-4"
-      onClick={() => setAccordionOpen(id)}
-    >
+    <div className="md:px-0 px-4" onClick={() => setAccordionOpen(id)}>
       <button
         className="transition ease-out delay-75 w-full flex hover:font-light justify-between items-center py-4 px-0 text-left text-gray-300 text-lg font-semibold focus:outline-none hover:text-primary-700"
         onClick={() => setAccordionOpen(id)}
@@ -62,6 +77,7 @@ export default function Bio() {
 
   const t = useTranslations("Bio");
   const toggleAccordion = (id: number) => {
+    console.log("Toggling accordion with id:", id);
     setOpenAccordionId(openAccordionId === id ? null : id);
   };
 
@@ -76,39 +92,49 @@ export default function Bio() {
       id="bio"
       className="min-h-[calc(100vh-92px)] 2xl:py-12 md:py-0 py-24 relative px-12 flex flex-col gap-12 md:gap-8"
     >
-      <div className="flex flex-col text-center mb-2">
+      {/* <div className="flex flex-col text-center mb-2">
         <Typewriter
           text={t("title")}
           showCursor={false}
           className=" text-white text-[16px] font-bold md:text-[24px]"
         />
-      </div>
+      </div> */}
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="w-full md:max-w-[80%] flex flex-col gap-4 md:gap-16 self-center"
+        className="w-full md:max-w-[80%] flex flex-col p-6 gap-4 md:gap-16 self-center"
       >
-        <div className="rounded-2xl transition-colors duration-500 ease-in-out hover:bg-gray-800 shadow-md md:p-4 2xl:p-8">
-          <AccordionItem
-            title={t("howDoIgetHere")}
-            id={1}
-            isOpen={openAccordionId === 1}
-            setAccordionOpen={toggleAccordion}
+        {AccordionSections.map((item) => (
+          <div
+            key={item.title}
+            className="rounded-2xl border border-gray-500 transition-colors duration-500 ease-in-out bg-gray-800 shadow-md md:p-6 2xl:p-6"
           >
-            <VerticalCutReveal
-              splitBy="words"
-              staggerDuration={0.01}
-              staggerFrom="first"
-              reverse={true}
-              transition={transition}
+            <AccordionItem
+              title={
+                <span className="flex items-center gap-6">
+                  {item.icon} {t(item.title)}
+                </span>
+              }
+              id={item.id}
+              isOpen={openAccordionId === item.id}
+              setAccordionOpen={toggleAccordion}
             >
-              {t("gotHereSummary")}
-            </VerticalCutReveal>
-          </AccordionItem>
-        </div>
-        <div className="rounded-2xl transition-colors duration-500 ease-in-out hover:bg-gray-800 shadow-md md:p-4 2xl:p-8">
+              <VerticalCutReveal
+                splitBy="words"
+                staggerDuration={0.01}
+                staggerFrom="first"
+                reverse={true}
+                transition={transition}
+              >
+                {t(item.content)}
+              </VerticalCutReveal>
+            </AccordionItem>
+          </div>
+        ))}
+
+        {/* <div className="rounded-2xl transition-colors duration-500 ease-in-out bg-gray-800 shadow-md md:p-4 2xl:p-8">
           <AccordionItem
             title={t("professionalPath")}
             id={2}
@@ -127,7 +153,7 @@ export default function Bio() {
           </AccordionItem>
         </div>
 
-        <div className="rounded-2xl transition-colors duration-500 ease-in-out hover:bg-gray-800 shadow-md md:p-4 2xl:p-8">
+        <div className="rounded-2xl transition-colors duration-500 ease-in-out bg-gray-800 shadow-md md:p-4 2xl:p-8">
           <AccordionItem
             title={t("hobbiesTitle")}
             id={3}
@@ -144,7 +170,7 @@ export default function Bio() {
               {t("hobbies")}
             </VerticalCutReveal>
           </AccordionItem>
-        </div>
+        </div> */}
       </motion.div>
       {!openAccordionId && (
         <motion.div
@@ -152,12 +178,7 @@ export default function Bio() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.2, delay: 0.2 }}
           className="absolute bottom-[92px] flex self-center"
-        >
-          <NextSection
-            next="#projects"
-            className={`absolute 2xl:bottom-[30px] md:bottom-0 flex self-center`}
-          />
-        </motion.div>
+        ></motion.div>
       )}
       {/* {!openAccordionId && <NextSection next="#projects" className={`absolute bottom-[92px] flex self-center`} /> }  */}
     </div>

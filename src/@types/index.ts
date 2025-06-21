@@ -17,4 +17,5 @@ export type Project = {
   img: string;
   title: string;
   smallDescription: string;
+  link: string;
 };

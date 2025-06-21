@@ -39,37 +39,13 @@ export const Projects = () => {
                   img={project.img}
                   title={project.title}
                   smallDescription={project.smallDescription}
+                  ghLink={project.link}
                 />
               </div>
             ))}
           </div>
-          {/* <div className="min-w-full min-h-screen justify-normal md:justify-center flex-col md:flex-row flex gap-8 md:gap-12 md:p-24 pt-4 md:pt-16">
-            <Carousel className="max-w-[70%]">
-              <CarouselContent>
-                {projects.map((project) => (
-                  <CarouselItem className="h-full" key={project.title}>
-                    <ProjectsCard
-                      img={project.img}
-                      title={project.title}
-                      smallDescription={project.smallDescription}
-                    />
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-
-              <CarouselPrevious
-                size="lg"
-                className="bg-transparent text-white border-none"
-              />
-              <CarouselNext className="bg-transparent border-none text-white" />
-            </Carousel>
-          </div> */}
         </div>
       )}
-      {/* <NextSection
-        next="#bio"
-        className="bottom-0 md:bottom-[0px] flex justify-center"
-      /> */}
     </div>
   );
 };
