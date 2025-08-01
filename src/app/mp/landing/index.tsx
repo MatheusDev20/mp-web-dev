@@ -20,7 +20,7 @@ export const Landing = () => {
         <div className="place-self-center mt-6 gap-6 flex">
           <a
             href={`https://drive.google.com/uc?export=download&id=${fileID}`}
-            download="matheus_cv.pdf"
+            rel="noopener noreferrer"
           >
             <button
               className="inline-flex items-center justify-center whitespace-nowrap text-[#171717] font-bold rounded-md text-sm ring-offset-background transition-colors duration-200 ease-in-out 
@@ -31,13 +31,13 @@ export const Landing = () => {
             </button>
           </a>
 
-          <button
+          {/* <button
             className="inline-flex items-center justify-center whitespace-nowrap text-white font-bold rounded-md text-sm ring-offset-background transition-colors duration-200 ease-in-out 
           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-[#171717] border border-gray-700 h-10 px-4 py-2 
           hover:bg-gray-800 hover:border-gray-600 hover:text-white"
           >
             {t("getInTouch")}
-          </button>
+          </button> */}
         </div>
       </main>
       <NextSection

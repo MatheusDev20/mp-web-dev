@@ -10,6 +10,6 @@ export function absoluteUrl(path: string) {
 }
 export const getCvFileId = (lang: string) => {
   return lang === "pt"
-    ? "1aAb3C2ZHv16JfennBWC3wlou4MU-HqEPpA2-LtAaeoA"
-    : "1ZC9yKrpj_MY6j-pctKIlw6pOKmgtjqKBvNj0Lpk13G4";
+    ? "1mfwrYv6SRt6zOBJ5ucNoJV11hQlGZlUO"
+    : "1pw40HyISPwzfphZ7olwgQTlKAvyLGYSX";
 };
