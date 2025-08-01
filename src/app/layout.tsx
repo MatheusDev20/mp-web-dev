@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Roboto_Mono, Roboto } from "next/font/google";
+import { Roboto_Mono, Roboto } from "next/font/google";
 import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { ApplicationProvider } from "./providers/application";
