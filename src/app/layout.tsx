@@ -8,11 +8,16 @@ import { getLocale, getMessages } from "next-intl/server";
 const RobotoMono = Roboto_Mono({
   variable: "--font-roboto-mono",
   subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "700"],
 });
 
 const roboto = Roboto({
   weight: "400",
   subsets: ["latin"],
+  variable: "--font-roboto",
+  display: "swap",
+  fallback: ["system-ui", "sans-serif"],
 });
 
 export const metadata: Metadata = {
