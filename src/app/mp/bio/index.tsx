@@ -78,7 +78,6 @@ export default function Bio() {
 
   const t = useTranslations("Bio");
   const experiences = loadExperience();
-  console.log("Bio component rendered", experiences);
   const toggleAccordion = (id: number) => {
     console.log("Toggling accordion with id:", id);
     setOpenAccordionId(openAccordionId === id ? null : id);

@@ -40,7 +40,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} className="scroll-smooth scroll-pt-[92px]">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${RobotoMono.variable} ${roboto.className} antialiased`}
+        className={`${RobotoMono.variable} ${roboto.className} antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
           <ApplicationProvider>{children}</ApplicationProvider>
