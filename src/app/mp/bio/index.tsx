@@ -34,7 +34,7 @@ export const AccordionSections = [
   {
     id: 3,
     title: "skills",
-    content: "skills",
+    content: null,
     icon: <Code className="w-8 h-8 text-blue-600" />,
   },
 ];
@@ -57,7 +57,7 @@ const AccordionItem = ({
       </button>
       <div
         className={`md:overflow-hidden overflow-y-auto transition-[max-height] duration-500 ease-in-out ${
-          isOpen ? "max-h-[300px]" : "max-h-0"
+          isOpen ? "max-h-[420px]" : "max-h-0"
         }`}
       >
         <main>
@@ -99,7 +99,7 @@ export default function Bio() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="w-full md:max-w-[80%] flex flex-col p-6 gap-4 md:gap-16 self-center"
+        className="w-full md:max-w-[90%] flex flex-col gap-4 md:gap-16 self-center"
       >
         {AccordionSections.map((item) => (
           <div
@@ -123,9 +123,40 @@ export default function Bio() {
                 reverse={true}
                 transition={transition}
               >
-                {t(item.content)}
+                {item.content && t(item.content)}
               </VerticalCutReveal>
               {item.id === 2 && <Timeline experiences={experiences} />}
+              {item.id === 3 && (
+                <div className="flex flex-col gap-4 p-2 text-sm leading-relaxed shadow-sm dark:bg-zinc-900 dark:text-zinc-100">
+                  <div>
+                    <h3 className="font-semibold text-base mb-2 text-white">
+                      Frontend
+                    </h3>
+                    <p>
+                      React JS (5 anos) • TypeScript (4 anos) • Next.js (3 anos)
+                      • Material UI (2 anos)
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-base mb-2 text-white">
+                      Backend
+                    </h3>
+                    <p>
+                      Node.js (5 anos) • Python (4 anos) • Flask (2 anos) • APIs
+                      RESTful (5 anos) • PostgreSQL (2 anos)
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-base mb-2 text-white">
+                      Cloud & DevOps
+                    </h3>
+                    <p>
+                      AWS (Lambda, API Gateway, SQS, SNS, S3) • Docker • CI/CD •
+                      Git • Terraform
+                    </p>
+                  </div>
+                </div>
+              )}
             </AccordionItem>
           </div>
         ))}

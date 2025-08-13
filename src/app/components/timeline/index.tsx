@@ -29,7 +29,7 @@ const Timeline: React.FC<TimelineProps> = ({ experiences }) => {
             key={idx}
             className="relative mt-12 text-center h-[170px] min-w-[200px] max-w-[300px]"
           >
-            <div className="flex relative flex-col justify-between left-[50%] h-full">
+            <div className="flex relative flex-col justify-between h-full">
               <div className="absolute top-[50%] self-center transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-500 dark:bg-blue-400 border-2 border-white dark:border-gray-800"></div>
               <div>
                 <span>
