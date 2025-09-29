@@ -11,7 +11,6 @@ type Props = {
 };
 
 export const SocialNav = ({ navHover, setNavHover }: Props) => {
-  // const { linkedin, github } = loadSocialConfigs()
   const t = useTranslations("Header");
 
   const handleHover = (e: any) => {

@@ -67,14 +67,6 @@ export const Menu = ({ navHover, setNavHover }: Props) => {
                 Projetos
               </a>
             </li>
-            <li>
-              <a
-                href="#goals"
-                className="text-gray-300 font-light  md:text-[14px] cursor-pointer hover:text-primary-500"
-              >
-                Experiência
-              </a>
-            </li>
           </ul>
         </motion.div>
       )}

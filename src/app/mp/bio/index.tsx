@@ -1,12 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
+import { CLF_CO2Badge } from "@/app/components/badges/clf-co2";
 import VerticalCutReveal from "@/app/components/fancy/vertical-reveal";
 import { ChevronUpIcon } from "@/app/components/icons/chevron-up.icon";
 import { ChevronDownIcon } from "@/app/components/icons/chevron.icon";
+import { TechStack } from "@/app/components/tech-stack";
 import Timeline from "@/app/components/timeline";
 import { loadExperience } from "@/app/utils/json";
 import { motion } from "framer-motion";
-import { BriefcaseBusiness, Code, User } from "lucide-react";
+import { BriefcaseBusiness, Code, User, Badge } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { ReactNode, useState } from "react";
 
@@ -36,6 +38,12 @@ export const AccordionSections = [
     title: "skills",
     content: null,
     icon: <Code className="w-8 h-8 text-blue-600" />,
+  },
+  {
+    id: 4,
+    title: "certifications",
+    content: null,
+    icon: <Badge className="w-8 h-8 text-blue-600" />,
   },
 ];
 
@@ -126,35 +134,10 @@ export default function Bio() {
                 {item.content && t(item.content)}
               </VerticalCutReveal>
               {item.id === 2 && <Timeline experiences={experiences} />}
-              {item.id === 3 && (
-                <div className="flex flex-col gap-4 p-2 text-sm leading-relaxed shadow-sm dark:bg-zinc-900 dark:text-zinc-100">
-                  <div>
-                    <h3 className="font-semibold text-base mb-2 text-white">
-                      Frontend
-                    </h3>
-                    <p>
-                      React JS (5 anos) • TypeScript (4 anos) • Next.js (3 anos)
-                      • Material UI (2 anos)
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-base mb-2 text-white">
-                      Backend
-                    </h3>
-                    <p>
-                      Node.js (5 anos) • Python (4 anos) • Flask (2 anos) • APIs
-                      RESTful (5 anos) • PostgreSQL (2 anos)
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-base mb-2 text-white">
-                      Cloud & DevOps
-                    </h3>
-                    <p>
-                      AWS (Lambda, API Gateway, SQS, SNS, S3) • Docker • CI/CD •
-                      Git • Terraform
-                    </p>
-                  </div>
+              {item.id === 3 && <TechStack />}
+              {item.id === 4 && (
+                <div className="bg-gray-200 rounded-lg border p-4">
+                  <CLF_CO2Badge />
                 </div>
               )}
             </AccordionItem>
